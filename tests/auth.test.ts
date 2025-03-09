@@ -1,7 +1,7 @@
 import request from "supertest";
-import { app } from "../src/server.ts";
-import { User } from "../src/schema/user.schema.ts";
-import { resetTokens } from "../src/cache/user.cache.ts";
+import { app } from "../src/server.js";
+import { User } from "../src/schema/user.schema.js";
+import { resetTokens } from "../src/cache/user.cache.js";
 
 const testUser = {
   email: "testauth@example.com",

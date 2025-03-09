@@ -7,10 +7,10 @@ import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import xss from "xss";
 
-import logger from "./utils/logger.ts";
-import {Connection} from "./config/db.ts";
-import { errorHandler } from "./middlewares/error.middleware.ts";
-import { setupRoutes } from "./setUpRoutes.ts";
+import logger from "./utils/logger.js";
+import {Connection} from "./config/db.js";
+import { errorHandler } from "./middlewares/error.middleware.js";
+import { setupRoutes } from "./setUpRoutes.js";
 
 dotenv.config();
 

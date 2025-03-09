@@ -1,7 +1,7 @@
 import { Response, NextFunction } from "express";
 
-import { ApiError } from "../utils/apiErrors.ts";
-import { AuthRequest } from "./auth.middleware.ts";
+import { ApiError } from "../utils/apiErrors.js";
+import { AuthRequest } from "./auth.middleware.js";
 
 export const authorize = (roles: string[]) => {
   return (req: AuthRequest, res: Response, next: NextFunction) => {

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc --build",
     "test": "jest",
-    "dev": "nodemon --watch src --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/server.ts"
+    "start": "tsc --build && node dist/src/server.js",
+    "dev": "nodemon --watch src --exec \"tsc --build && node dist/src/server.js\""
   },
   "keywords": [],
   "author": "",

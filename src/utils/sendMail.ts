@@ -1,6 +1,6 @@
-import { ApiError } from "../utils/apiErrors";
-import logger from "../utils/logger";
-import transporter from "../config/nodemailer";
+import { ApiError } from "../utils/apiErrors.js";
+import logger from "../utils/logger.js";
+import transporter from "../config/nodemailer.js";
 
 //  Send password reset email with token
 export const sendResetPasswordEmail = async (

@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-import { ApiError } from "../utils/apiErrors.ts";
-import { User } from "../schema/user.schema.ts";
+import { ApiError } from "../utils/apiErrors.js";
+import { User } from "../schema/user.schema.js";
 
 export interface AuthRequest extends Request {
   user?: any;

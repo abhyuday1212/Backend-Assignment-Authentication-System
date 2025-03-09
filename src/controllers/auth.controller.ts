@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import { User } from "../schema/user.schema.ts";
-import { authValidation } from "../types/auth.validation.ts";
-import { ApiError } from "../utils/apiErrors.ts";
-import { ApiResponse } from "../utils/apiResponse.ts";
-import { asyncHandler } from "../utils/asyncHandler.ts";
-import logger from "../utils/logger.ts";
-import transporter from "../config/nodemailer.ts";
-import { resetTokens } from "../cache/user.cache.ts";
+import { User } from "../schema/user.schema.js";
+import { authValidation } from "../types/auth.validation.js";
+import { ApiError } from "../utils/apiErrors.js";
+import { ApiResponse } from "../utils/apiResponse.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import logger from "../utils/logger.js";
+import transporter from "../config/nodemailer.js";
+import { resetTokens } from "../cache/user.cache.js";
 import dotnev from "dotenv";
 dotnev.config();
 

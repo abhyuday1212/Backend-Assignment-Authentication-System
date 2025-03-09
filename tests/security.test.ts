@@ -1,5 +1,5 @@
 import request from "supertest";
-import { app } from "../src/server.ts";
+import { app } from "../src/server.js";
 
 describe("Security Features", () => {
   it("should have proper XSS protection", async () => {

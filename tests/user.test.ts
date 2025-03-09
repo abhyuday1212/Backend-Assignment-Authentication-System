@@ -1,6 +1,6 @@
 import request from "supertest";
-import { app } from "../src/server.ts";
-import { User } from "../src/schema/user.schema.ts";
+import { app } from "../src/server.js";
+import { User } from "../src/schema/user.schema.js";
 
 const testUser = {
   email: "testuser@example.com",

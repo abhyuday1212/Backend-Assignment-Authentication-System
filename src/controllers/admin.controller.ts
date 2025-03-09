@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
 
-import { User } from "../schema/user.schema.ts";
-import { ApiError } from "../utils/apiErrors.ts";
-import { ApiResponse } from "../utils/apiResponse.ts";
-import { asyncHandler } from "../utils/asyncHandler.ts";
-import logger from "../utils/logger.ts";
+import { User } from "../schema/user.schema.js";
+import { ApiError } from "../utils/apiErrors.js";
+import { ApiResponse } from "../utils/apiResponse.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import logger from "../utils/logger.js";
 
 // delete a user, admin only action
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {

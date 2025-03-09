@@ -13,33 +13,7 @@ This is a backend assignment comprising test cases, logger systems, security met
 
 # 2.0 Installation
 
-# Method 1: To Run the project using docker
-
-- Step 1: Clone the Repo
-
-```bash
- git clone https://github.com/abhyuday1212/Backend-Assignment.git
-```
-
-- Step 2: Go the EvaluationTask folder & run
-
-```bash
- docker-compose up
-```
-
-- Step 3: Backend Url for hitting the server using postman
-
-```bash
- http://localhost:8000/
-```
-
----
-
-</br>
-
-# Method 2: To run the project Manually:
-
-Install the project by cloning this repo from your terminal.
+### Install the project by cloning this repo from your terminal.
 
 - Step 1: Clone the Repo
 
@@ -63,10 +37,15 @@ Install the project by cloning this repo from your terminal.
 - Goto #root folder and run these commands in your powershell.
 
 ```bash
-  npm run dev
+  npm start
 ```
 
 - If terminal returns Port started successfully at ${PORT} & Databse connected successfully than you are good to go.
+
+
+---
+
+backend is accessible at http://localhost:8000
 
 ---
 

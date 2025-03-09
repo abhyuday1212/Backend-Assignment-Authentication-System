@@ -1,8 +1,8 @@
 import { Express } from "express";
 
-import authRouter from "./routes/auth.routes.ts";
-import userRouter from "./routes/user.routes.ts";
-import adminRouter from "./routes/admin.routes.ts";
+import authRouter from "./routes/auth.routes.js";
+import userRouter from "./routes/user.routes.js";
+import adminRouter from "./routes/admin.routes.js";
 
 export const setupRoutes = (app: Express) => {
   app.use("/api/v1/auth", authRouter);

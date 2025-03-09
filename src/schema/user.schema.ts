@@ -1,5 +1,4 @@
 import mongoose, { Document } from "mongoose";
-
 import bcrypt from "bcryptjs";
 import jwt, { SignOptions } from "jsonwebtoken";
 

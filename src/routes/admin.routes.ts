@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import { verifyToken } from "../middlewares/auth.middleware.ts";
-import { authorize } from "../middlewares/role.middleware.ts";
-import { deleteUser } from "../controllers/admin.controller.ts";
+import { verifyToken } from "../middlewares/auth.middleware.js";
+import { authorize } from "../middlewares/role.middleware.js";
+import { deleteUser } from "../controllers/admin.controller.js";
 
 const router = Router();
 

@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import { logoutUser } from "../controllers/user.controller.ts";
-import { verifyToken } from "../middlewares/auth.middleware.ts";
+import { logoutUser } from "../controllers/user.controller.js";
+import { verifyToken } from "../middlewares/auth.middleware.js";
 import {
   getUserProfile,
   updateUserProfile,
-} from "../controllers/user.controller.ts";
+} from "../controllers/user.controller.js";
 
 const router = Router();
 

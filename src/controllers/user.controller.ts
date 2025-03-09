@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 
-import { asyncHandler } from "../utils/asyncHandler.ts";
-import { ApiResponse } from "../utils/apiResponse.ts";
-import { ApiError } from "../utils/apiErrors.ts";
-import { User } from "../schema/user.schema.ts";
-import { AuthRequest } from "../middlewares/auth.middleware.ts";
-import { userValidation } from "../types/user.validation.ts";
-import logger from "../utils/logger.ts";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { ApiResponse } from "../utils/apiResponse.js";
+import { ApiError } from "../utils/apiErrors.js";
+import { User } from "../schema/user.schema.js";
+import { AuthRequest } from "../middlewares/auth.middleware.js";
+import { userValidation } from "../types/user.validation.js";
+import logger from "../utils/logger.js";
 
 export const getUserProfile = asyncHandler(
   async (req: AuthRequest, res: Response) => {
