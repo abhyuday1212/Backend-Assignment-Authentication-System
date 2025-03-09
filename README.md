@@ -31,6 +31,8 @@ This is a backend assignment comprising test cases, logger systems, security met
   npm i --force
 ```
 
+### Create .env file by copying the variable names from .env.sample
+
 
 ### Run the backend server.
 
