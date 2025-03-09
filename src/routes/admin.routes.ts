@@ -8,6 +8,6 @@ const router = Router();
 
 // allow admins to delete any user
 // This route is only accessible to admins
-router.delete("/user/:id", verifyToken, authorize(["admin"]), deleteUser);
+router.delete("/:id", verifyToken, authorize(["admin"]), deleteUser);
 
 export default router;

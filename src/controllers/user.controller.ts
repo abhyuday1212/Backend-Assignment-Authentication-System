@@ -33,18 +33,24 @@ export const updateUserProfile = asyncHandler(
 
     const userId = req.user.id;
 
-    const user = await User.findById(userId);
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: { email: req.body.email } },
+      {
+        new: true,
+        select: "-password -refreshToken",
+        runValidators: true,
+      }
+    );
 
-    if (!user) {
+    if (!updatedUser) {
       logger.warn("Unauthorized user tried to update a user profile");
       throw new ApiError(404, "User not found");
     }
 
-    user.email = req.body.email;
-
-    await user.save();
-
-    res.json(new ApiResponse(200, user, "User profile updated successfully"));
+    res.json(
+      new ApiResponse(200, updatedUser, "User profile updated successfully")
+    );
   }
 );
 

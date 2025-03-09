@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import {
   forgotPassword,
-  generateNewRefreshToken,
+  generateNewAccessToken,
   loginUser,
   registerUser,
   resetPassword,
@@ -15,6 +15,6 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.post("/forget", forgotPassword);
 router.post("/reset/:token", resetPassword);
-router.post("/refresh", generateNewRefreshToken);
+router.post("/refresh", generateNewAccessToken);
 
 export default router;

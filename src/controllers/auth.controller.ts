@@ -239,7 +239,7 @@ export const resetPassword = asyncHandler(
   }
 );
 
-export const generateNewRefreshToken = asyncHandler(
+export const generateNewAccessToken = asyncHandler(
   async (req: Request, res: Response) => {
     const refreshToken = req.cookies.refreshToken;
 

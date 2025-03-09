@@ -13,6 +13,6 @@ const router = Router();
 // routes only accessible for user
 router.get("/profile", verifyToken, getUserProfile);
 router.post("/logout", verifyToken, logoutUser);
-router.put("/profile", verifyToken, updateUserProfile);
+router.patch("/update", verifyToken, updateUserProfile);
 
 export default router;
