@@ -1,7 +1,6 @@
 services:
   backend:
-    build:
-      context: ./
+    image: abhyuday1212/backend-assignment:latest
     init: true
     restart: unless-stopped
     ports:

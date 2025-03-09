@@ -11,8 +11,8 @@ const router = Router();
 
 // Secured routes
 // routes only accessible for user
-router.post("/logout", verifyToken, logoutUser);
 router.get("/profile", verifyToken, getUserProfile);
+router.post("/logout", verifyToken, logoutUser);
 router.put("/profile", verifyToken, updateUserProfile);
 
 export default router;
