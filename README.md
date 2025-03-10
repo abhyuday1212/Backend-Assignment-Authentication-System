@@ -86,8 +86,15 @@ npm test -- tests/admin.test.ts
 npm test -- tests/auth.test.ts
 npm test -- tests/security.test.ts
 ```
+### My Results
 
-# 7.0 Images
-Please check the public/assets folder for images.
+![admin controller Tests](public/assets/adminTests.jpg)
+![auth controller Tests](public/assets/authTests.jpg)
+![security controller Tests](public/assets/securityTests.jpg)
+![user controller tests](public/assets/userTests.jpg)
+
+
+# 7.0 Postman
+![Postman routes](public/assets/Postman.png)
 
  
