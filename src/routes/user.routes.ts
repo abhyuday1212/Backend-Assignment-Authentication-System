@@ -10,7 +10,7 @@ import {
 const router = Router();
 
 // Secured routes
-// routes only accessible for user
+// routes accessible for user with valid token only (protected via middleware)
 router.get("/profile", verifyToken, getUserProfile);
 router.post("/logout", verifyToken, logoutUser);
 router.patch("/update", verifyToken, updateUserProfile);
