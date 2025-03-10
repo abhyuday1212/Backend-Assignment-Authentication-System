@@ -9,7 +9,7 @@ import logger from "../utils/logger.js";
 
 // delete a user, admin only action
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.query;
+  const { id } = req.params;
 
   if (!mongoose.isValidObjectId(id)) {
     logger.warn(`Invalid user ID format: ${id}`);
