@@ -43,9 +43,7 @@ describe("User Controller Tests", () => {
         .set("Cookie", [`accessToken=${userToken}`]);
 
       expect(res.status).toBe(200);
-
       expect(res.body.success).toBe(true);
-
       expect(res.body.data.email).toBe(testUser.email);
     });
 
@@ -53,7 +51,6 @@ describe("User Controller Tests", () => {
       const res = await request(app).get("/api/v1/user/profile");
 
       expect(res.status).toBe(401);
-
       expect(res.body.success).toBe(false);
     });
 
@@ -61,18 +58,16 @@ describe("User Controller Tests", () => {
       const updatedEmail = "updated@example.com";
 
       const res = await request(app)
-        .put("/api/v1/user/profile")
+        .patch("/api/v1/user/update") // Changed from PUT /profile to PATCH /update
         .set("Cookie", [`accessToken=${userToken}`])
         .send({ email: updatedEmail });
 
       expect(res.status).toBe(200);
-
       expect(res.body.success).toBe(true);
-
       expect(res.body.data.email).toBe(updatedEmail);
 
       await request(app)
-        .put("/api/v1/user/profile")
+        .patch("/api/v1/user/update") // updated this line
         .set("Cookie", [`accessToken=${userToken}`])
         .send({ email: testUser.email });
     });
@@ -85,7 +80,6 @@ describe("User Controller Tests", () => {
         .set("Cookie", [`accessToken=${userToken}`]);
 
       expect(res.status).toBe(200);
-
       expect(res.body.success).toBe(true);
 
       const cookies = Array.isArray(res.headers["set-cookie"])

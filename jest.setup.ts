@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Connection } from "./src/config/db.ts";
+import { Connection } from "./src/config/db.js";
 
 // Global setup - runs once before all test files
 beforeAll(async () => {

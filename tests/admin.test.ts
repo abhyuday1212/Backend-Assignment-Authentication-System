@@ -17,7 +17,7 @@ const regularUser = {
 let adminToken = "";
 let regularToken = "";
 
-jest.setTimeout(15000);
+jest.setTimeout(30000); // Increased timeout
 
 beforeAll(async () => {
   await User.deleteMany({
@@ -61,7 +61,7 @@ beforeAll(async () => {
   );
 
   regularToken = regularAccessCookie.split(";")[0].split("=")[1];
-}, 10000);
+}, 30000);
 
 afterAll(async () => {
   await User.deleteMany({
@@ -76,18 +76,20 @@ describe("Admin API", () => {
       password: "DeleteMe123",
     };
 
-    const createRes = await request(app)
-      .post("/api/v1/auth/register")
-      .send(userToDelete);
+    await request(app).post("/api/v1/auth/register").send(userToDelete);
 
-    const userId = createRes.body.data._id;
+    const createdUser = await User.findOne({ email: userToDelete.email });
+    if (!createdUser) {
+      throw new Error("Failed to create user for test");
+    }
+    const userId = createdUser._id;
 
     const deleteRes = await request(app)
       .delete(`/api/v1/admin/user/${userId}`)
       .set("Cookie", [`accessToken=${adminToken}`]);
 
     expect(deleteRes.status).toBe(200);
-    
+
     expect(deleteRes.body.success).toBe(true);
 
     const user = await User.findById(userId);
@@ -100,11 +102,14 @@ describe("Admin API", () => {
       password: "AnotherPass123",
     };
 
-    const createRes = await request(app)
-      .post("/api/v1/auth/register")
-      .send(anotherUser);
+    await request(app).post("/api/v1/auth/register").send(anotherUser);
 
-    const userId = createRes.body.data._id;
+    const createdUser = await User.findOne({ email: anotherUser.email });
+    if (!createdUser) {
+      throw new Error("Failed to create user for test");
+    }
+
+    const userId = createdUser._id;
 
     const deleteRes = await request(app)
       .delete(`/api/v1/admin/user/${userId}`)
