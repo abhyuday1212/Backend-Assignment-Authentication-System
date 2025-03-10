@@ -70,7 +70,24 @@ https://hub.docker.com/repository/docker/abhyuday1212/backend-assignment
 https://backend-assignment-7713.postman.co/workspace/backend-assignment-Workspace~86dacae8-dd00-4f7c-9a24-12ba3377e181/collection/29496688-5a0d9a86-8c50-4072-bd0c-6c02b3f3a1c1?action=share&creator=29496688
 ```
 
-# 6.0 Images
+# 6.0 Running Test Cases
+
+### To run all test cases:
+
+```bash
+npm test
+```
+
+### To run individual test suites:
+
+```bash
+npm test -- tests/user.test.ts
+npm test -- tests/admin.test.ts
+npm test -- tests/auth.test.ts
+npm test -- tests/security.test.ts
+```
+
+# 7.0 Images
 Please check the public/assets folder for images.
 
  
