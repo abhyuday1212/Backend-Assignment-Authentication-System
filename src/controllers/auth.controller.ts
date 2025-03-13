@@ -151,7 +151,7 @@ export const forgotPassword = asyncHandler(
     logger.info(`Password reset link Generated: ${resetLink}`); //testing
 
     // Store the token in local cache
-    resetTokens.set(token, {
+    resetTokens.set(email, {
       email,
       token,
       resetLink,
@@ -160,7 +160,7 @@ export const forgotPassword = asyncHandler(
 
     // Automatically delete the token after it expires, to prevent memoryLeak
     setTimeout(() => {
-      resetTokens.delete(token);
+      resetTokens.delete(email);
     }, 3600000);
 
     // Compose email message
@@ -199,10 +199,14 @@ export const forgotPassword = asyncHandler(
 export const resetPassword = asyncHandler(
   async (req: Request, res: Response) => {
     const { token } = req.params;
-    const { newPassword } = req.body;
+    const { newPassword,email } = req.body;
 
     if (!newPassword) {
       throw new ApiError(400, "New password is required");
+    }
+
+    if (!email) {
+      throw new ApiError(400, "Email is required");
     }
 
     try {
@@ -212,7 +216,7 @@ export const resetPassword = asyncHandler(
       throw new ApiError(401, "Invalid or expired token");
     }
 
-    const storedToken = resetTokens.get(token);
+    const storedToken = resetTokens.get(email);
     if (!storedToken) {
       throw new ApiError(401, "Invalid or expired token");
     }
@@ -222,7 +226,7 @@ export const resetPassword = asyncHandler(
       throw new ApiError(400, "Token expired");
     }
 
-    const user = await User.findOne({ email: storedToken.email });
+    const user = await User.findOne({ email });
 
     if (!user) {
       throw new ApiError(404, "User not found");
@@ -231,7 +235,7 @@ export const resetPassword = asyncHandler(
     user.password = newPassword;
     await user.save();
 
-    resetTokens.delete(token);
+    resetTokens.delete(email);
 
     logger.info(`Password reset successful for user ${user.email}`);
 

@@ -109,12 +109,12 @@ describe("Auth Controller Tests", () => {
 
       expect(res.body.success).toBe(true);
 
-      for (const [token, data] of resetTokens.entries()) {
-        if (data.email === testUser.email) {
-          resetToken = token;
-          break;
-        }
-      }
+      const storedData = resetTokens.get(testUser.email);
+
+      expect(storedData).toBeTruthy();
+      expect(storedData?.token).toBeTruthy();
+
+      resetToken = storedData?.token!; 
 
       expect(resetToken).toBeTruthy();
     });
