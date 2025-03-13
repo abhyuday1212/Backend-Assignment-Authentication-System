@@ -101,17 +101,25 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     "-password -refreshToken"
   );
 
-  const options = {
+  const accessOptions = {
     httpOnly: true,
     secure: true,
+    maxAge: parseInt(process.env.ACCESS_TOKEN_EXPIRY!) || 10 * 60 * 1000,
+  };
+
+  const refreshOptions = {
+    httpOnly: true,
+    secure: true,
+    maxAge:
+      parseInt(process.env.ACCESS_TOKEN_EXPIRY!) || 7 * 24 * 60 * 60 * 1000,
   };
 
   logger.info("User login successfully");
 
   return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
+    .cookie("accessToken", accessToken, accessOptions)
+    .cookie("refreshToken", refreshToken, refreshOptions)
     .json(
       new ApiResponse(
         200,
