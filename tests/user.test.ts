@@ -24,10 +24,14 @@ beforeAll(async () => {
     password: testUser.password,
   });
 
-  const cookies = Array.isArray(loginRes.headers["set-cookie"])
-    ? loginRes.headers["set-cookie"]
-    : [loginRes.headers["set-cookie"]];
+  // set the received cookie after login for further requests
+  const userCookies = loginRes.headers["set-cookie"];
+
+  const cookies = Array.isArray(userCookies) ? userCookies : [userCookies];
+
   const accessCookie = cookies.find((cookie) => cookie.includes("accessToken"));
+
+  console.log("Access cookie:", accessCookie);
   userToken = accessCookie.split(";")[0].split("=")[1];
 });
 
@@ -82,9 +86,9 @@ describe("User Controller Tests", () => {
       expect(res.status).toBe(200);
       expect(res.body.success).toBe(true);
 
-      const cookies = Array.isArray(res.headers["set-cookie"])
-        ? res.headers["set-cookie"]
-        : [res.headers["set-cookie"]];
+      const userCookies = res.headers["set-cookie"];
+
+      const cookies = Array.isArray(userCookies) ? userCookies : [userCookies];
 
       expect(
         cookies.some(
