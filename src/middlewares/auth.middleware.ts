@@ -13,8 +13,7 @@ export const verifyToken = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token =
-    req.cookies?.accessToken || req.header["authorization"]?.split(" ")[1];
+  const token = req.cookies?.accessToken  || req.headers["authorization"]?.split(" ")[1];
 
   if (!token) {
     return next(new ApiError(401, "Unauthorized request"));
