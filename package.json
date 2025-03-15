@@ -4,10 +4,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"node --no-deprecation --loader ts-node/esm src/server.ts\"",
     "build": "tsc --build",
     "test": "jest",
-    "start": "tsc --build && node dist/src/server.js",
-    "dev": "nodemon --watch src --exec \"tsc --build && node dist/src/server.js\""
+    "start": "tsc --build && node dist/src/server.js"
   },
   "keywords": [],
   "author": "",

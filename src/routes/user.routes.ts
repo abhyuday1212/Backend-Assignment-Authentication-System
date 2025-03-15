@@ -6,12 +6,15 @@ import {
   getUserProfile,
   updateUserProfile,
 } from "../controllers/user.controller.js";
+import { authorize } from "../middlewares/role.middleware.js";
 
 const router = Router();
 
 // Secured routes
+//user only routes
+router.get("/profile", verifyToken,authorize(["user"]), getUserProfile);
+
 // routes accessible for user with valid token only (protected via middleware)
-router.get("/profile", verifyToken, getUserProfile);
 router.post("/logout", verifyToken, logoutUser);
 router.patch("/update", verifyToken, updateUserProfile);
 

@@ -12,6 +12,9 @@ import {Connection} from "./config/db.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
 import { setupRoutes } from "./setUpRoutes.js";
 
+// "dev": "nodemon --watch src --ext ts --ignore dist/ --exec \"tsc --build && node dist/src/server.js\""
+
+
 dotenv.config();
 
 const app = express();
